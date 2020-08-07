@@ -39,14 +39,10 @@ public class Doctor {
     }
 
     public float calculateIMC(Patient patient){
-        float height = patient.getHeight();
-        float weight = patient.getWeight();
-        float IMC = (float) (weight/(Math.pow(height, 2)));
-        return IMC;
+        return (float) (patient.getWeight()/(Math.pow(patient.getHeight(), 2)));
     }
 
     public String getCompleteName() {
-        String result = name + " " + surname;
-        return result;
+        return  name + " " + surname;
     }
 }

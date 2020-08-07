@@ -1,1 +1,3 @@
-/Ejercicio1B/out/
+**/out
+*.iml
+**/.idea
