@@ -27,7 +27,7 @@ public class Calculator {
     }
 
     // @Param counter starts with 2 since any int number mod 1 will be 0
-    // method to calculate if n is prime using while loop
+    // method to calculate if n is prime using while loop.
     public boolean isPrime(){
         int counter = 2;
         boolean prime=true;

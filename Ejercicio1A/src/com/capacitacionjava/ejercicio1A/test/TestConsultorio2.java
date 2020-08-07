@@ -5,7 +5,7 @@ import com.capacitacionjava.ejercicio1A.model.Patient;
 
 public class TestConsultorio2 {
 
-    //changing weight of each Patient
+    //changing weight of each Patient.
    public static void changeWeight(Patient patient){
        patient.setWeight(60);
    }

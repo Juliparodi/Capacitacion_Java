@@ -5,7 +5,7 @@ import com.capacitacionjava.ejercicio1A.model.Patient;
 
 public class TestConsultorio {
     public static void main(String[] args) {
-        //Object initialization
+        //Object initialization.
         Patient patient1 = new Patient("José", "Pérez",1.80f,85);
         Patient patient2 = new Patient("Jorge", "Fernández",1.60f,90);
         Doctor doctor = new Doctor("Daniel", "Lopez", "sportsman");

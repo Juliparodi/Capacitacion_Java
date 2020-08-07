@@ -59,7 +59,7 @@ public class TestNumber {
 
     }
 
-    //method created to make my program more readable
+    //method created to make my program more readable.
     public static void pressEnterKey(){
         System.out.println("Press Enter key to continue...");
         try {
