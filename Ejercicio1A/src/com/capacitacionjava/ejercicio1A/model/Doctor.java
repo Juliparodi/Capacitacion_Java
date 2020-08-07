@@ -44,4 +44,9 @@ public class Doctor {
         float IMC = (float) (weight/(Math.pow(height, 2)));
         return IMC;
     }
+
+    public String getCompleteName() {
+        String result = name + " " + surname;
+        return result;
+    }
 }

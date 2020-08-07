@@ -12,6 +12,7 @@ public class TestConsultorio {
 
        //print results
         System.out.println("Visit 1" + "\n");
+        System.out.println("Doctor: " + doctor.getCompleteName());
         System.out.println("Patient " + patient1.getCompleteName() + ": " + "IMC: " + doctor.calculateIMC(patient1));
         System.out.println("Patient " + patient2.getCompleteName() + ": " + "IMC: " + doctor.calculateIMC(patient2) + "\n");
 
@@ -21,6 +22,7 @@ public class TestConsultorio {
 
         //printing new values
         System.out.println("Visit 2" + "\n");
+        System.out.println("Doctor: " + doctor.getCompleteName());
         System.out.println("Patient " + patient1.getCompleteName() + ": " + "IMC: " + doctor.calculateIMC(patient1));
         System.out.println("Patient " + patient2.getCompleteName() + ": " + "IMC: " + doctor.calculateIMC(patient2));
 
