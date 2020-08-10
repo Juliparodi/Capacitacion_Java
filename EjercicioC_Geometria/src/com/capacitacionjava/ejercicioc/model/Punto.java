@@ -38,4 +38,6 @@ public class Punto {
     public double calculateDistance(Punto p){
         return Math.sqrt((p.getX()-x)*(p.getX()-x) + (p.getY()-y)*(p.getY()-y));
     }
+
+
 }
