@@ -1,5 +1,7 @@
 package com.capacitacionjava.ejercicioc.model;
 
+import java.util.Objects;
+
 public class Punto {
 
     private double x;
@@ -26,21 +28,20 @@ public class Punto {
         this.y = y;
     }
 
-    public boolean equals(Punto p){
-
-        return ((x==p.getX())&&(y==p.getY()));
+    @Override
+    public boolean equals(Object p) {
+        return ((this.x==((Punto)p).getX())) && ((this.y==((Punto)p).getY()));
     }
 
     // re-definition
     @Override
     public String toString(){
-
         return "("+x+","+y+")";
     }
 
+    //(i looked for the formula in google jeje)
     public double calculateDistance(Punto p){
-        return Math.sqrt((p.getX()-x)*(p.getX()-x) + (p.getY()-y)*(p.getY()-y));
+        return Math.sqrt(x-(p.getX())*(x-(p.getX()))) + (y-(p.getY())*(y-(p.getY()))) ;
     }
-
 
 }

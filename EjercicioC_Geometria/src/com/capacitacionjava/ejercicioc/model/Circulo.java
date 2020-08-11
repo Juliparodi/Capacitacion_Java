@@ -3,7 +3,6 @@ package com.capacitacionjava.ejercicioc.model;
 public class Circulo {
     private Punto origen;
     private double radio;
-    private static final double pi  = 3.14;
 
     public Circulo(Punto origen, double radio) {
         this.origen = origen;
@@ -14,27 +13,40 @@ public class Circulo {
         this.radio = radio;
     }
 
-
-    public boolean equals(Circulo c){
-        return (this.origen==c.origen && this.radio==c.radio);
+    //radio will be equal to distance between circle origin and point as parameter
+    public void setRadio(Punto punto) {
+        this.radio = this.origen.calculateDistance(punto);
     }
 
+    public Punto getOrigen() {
+        return origen;
+    }
+
+    public double getRadio() {
+        return radio;
+    }
+
+    @Override
+    public boolean equals(Object c){
+        return ((this.origen==((Circulo)c).getOrigen())) && ((this.radio==((Circulo)c).getRadio()));
+    }
+
+    @Override
     public String toString(){
         return "punto: " + origen.getX() + " " + origen.getY() + " radio: " + radio;
     }
 
-    public double CalculatePerimeter(){
-        return (Math.pow(pi, 2)) * radio;
-
+    public double calculatePerimeter(){
+        return (Math.pow(Math.PI, 2)) * radio;
     }
 
-    public double CalculateArea(){
-        return pi * (Math.pow(radio, 2));
-
+    public double calculateArea(){
+        return Math.PI * (Math.pow(radio, 2));
     }
 
+    //calling calculateDistance already defined in punto class
     public double CalculateDistance(Circulo c) {
-        return Math.sqrt((this.origen.getX() - c.origen.getX()) * (this.origen.getX() - c.origen.getX()) + ((this.origen.getY() - c.origen.getY()) * (this.origen.getY() - c.origen.getY())));
+        return this.origen.calculateDistance(c.origen);
     }
 }
 
