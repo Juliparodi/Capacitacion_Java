@@ -27,11 +27,14 @@ public class Punto {
     }
 
     public boolean equals(Punto p){
+
         return ((x==p.getX())&&(y==p.getY()));
     }
+
     // re-definition
     @Override
     public String toString(){
+
         return "("+x+","+y+")";
     }
 
