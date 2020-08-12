@@ -45,7 +45,7 @@ public class Circulo {
     }
 
     //calling calculateDistance already defined in punto class
-    public double CalculateDistance(Circulo c) {
+    public double calculateDistance(Circulo c) {
         return this.origen.calculateDistance(c.origen);
     }
 }
