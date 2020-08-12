@@ -1,7 +1,5 @@
 package com.capacitacionjava.ejercicioc.model;
 
-import java.util.Objects;
-
 public class Punto {
 
     private double x;
@@ -39,7 +37,6 @@ public class Punto {
         return "("+x+","+y+")";
     }
 
-    //(i looked for the formula in google jeje)
     public double calculateDistance(Punto p){
         return Math.sqrt(x-(p.getX())*(x-(p.getX()))) + (y-(p.getY())*(y-(p.getY()))) ;
     }
