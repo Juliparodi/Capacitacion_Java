@@ -28,7 +28,7 @@ public class Punto {
 
     @Override
     public boolean equals(Object p) {
-        return ((this.x==((Punto)p).getX())) && ((this.y==((Punto)p).getY()));
+        return this.x==((Punto)p).getX() && this.y==((Punto)p).getY();
     }
 
     // re-definition

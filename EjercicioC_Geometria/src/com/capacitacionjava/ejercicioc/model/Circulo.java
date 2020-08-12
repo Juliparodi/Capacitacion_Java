@@ -26,9 +26,11 @@ public class Circulo {
         return radio;
     }
 
+    //equals para objects
+    //== para primitivos (int)
     @Override
     public boolean equals(Object c){
-        return ((this.origen==((Circulo)c).getOrigen())) && ((this.radio==((Circulo)c).getRadio()));
+        return this.origen.equals(((Circulo)c).getOrigen()) && this.radio==((Circulo)c).getRadio();
     }
 
     @Override
