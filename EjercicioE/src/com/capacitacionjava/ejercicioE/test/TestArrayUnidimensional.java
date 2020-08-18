@@ -4,25 +4,27 @@ import com.capacitacionjava.ejercicioE.model.ArrayStream;
 import com.capacitacionjava.ejercicioE.model.ArrayTraditional;
 import com.capacitacionjava.ejercicioE.model.ArrayUnidimensional;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class TestArrayUnidimensional {
     public static void main(String[] args) {
 
-        //Inicializacion objetos a usar y configuracion del size del Array
-        ArrayUnidimensional array = new ArrayUnidimensional();
-        ArrayStream arrayUsingStream = new ArrayStream();
-        ArrayTraditional arrayTraditional = new ArrayTraditional();
+        //Object initialization with array's size as parameter
+        ArrayUnidimensional array = new ArrayUnidimensional(10);
+        ArrayStream arrayUsingStream = new ArrayStream(10);
+        ArrayTraditional arrayTraditional = new ArrayTraditional(10);
 
-        //Llenar Array con Random numbers entre 1 y 50
-        //array.fillArray();
+        //fill array with numbers between 1 and 10
+        array.fillArray();
 
-        //print original array
-        System.out.println("a ver como esta el array ");
+        //print initial array
+        System.out.println("Initial array ");
         for (int i = 0; i < arrayUsingStream.sortArrayDesc().length; i++) {
             System.out.print(" " + arrayUsingStream.printArray()[i] + " ");
         }
         System.out.println();
 
-        //TESTEOS USANDO ArrayStream metodos.
+        //TESTS USING STREAM CLASS
         //Traer el menor
         System.out.println("Min number using stream is: " + arrayUsingStream.getMin());
 
@@ -46,30 +48,16 @@ public class TestArrayUnidimensional {
         }
         System.out.println();
 
-        System.out.println("a ver como esta el array ");
-        for (int i = 0; i < arrayUsingStream.printArray().length; i++) {
-            System.out.print(" " + arrayUsingStream.sortArrayDesc()[i] + " ");
-        }
-        System.out.println();
-
-        //Traer frecuencia
+        //Traerfrecuencia
+        int num1 = ThreadLocalRandom.current().nextInt(1,10);
+        System.out.println("frequency of number " + num1 + " is: " + arrayUsingStream.traerFrecuencia(num1));
 
         //Traer moda.
-        System.out.println("el numero de moda es: " + arrayUsingStream.traerModa());
+        System.out.println("mode number is: " + arrayUsingStream.traerModa());
+        System.out.println();
 
-        //TESTEOS USANDO ArrayTraditional metodo
+        //TESTS USING TRADITIONAL METHODS
         System.out.println("Now we are gonna use traditional methods");
-
-        //Ordenarlo ascendentemente
-        System.out.println("Array sorted asc: ");
-        arrayTraditional.sortArrayAsc();
-        System.out.println();
-
-
-        //Ordenarlo descendentemente
-        System.out.println("Array sorted desc: ");
-        arrayTraditional.sortArrayDesc();
-        System.out.println();
 
         //Traer el minimo
         System.out.println("Min number is: " + arrayTraditional.getMin());
@@ -77,11 +65,24 @@ public class TestArrayUnidimensional {
         //Traer el maximo
         System.out.println("Max number is: " + arrayTraditional.getMax());
 
+        //Promedio
+        System.out.println("Average is: " + arrayTraditional.avg());
+
+        //Ordenarlo ascendentemente
+        System.out.println("Array sorted asc: ");
+        arrayTraditional.sortArrayAsc();
+        System.out.println();
+
+        //Ordenarlo descendentemente
+        System.out.println("Array sorted desc: ");
+        arrayTraditional.sortArrayDesc();
+        System.out.println();
+
         //Traerfrecuencia
-        System.out.println("La frecuencia del numero es: " + arrayTraditional.traerFrecuencia(2));
+        System.out.println("frequency of number " + num1 + " is: " + arrayTraditional.traerFrecuencia(num1));
 
         //Numero de moda
-        System.out.println("El numero de moda es: " + arrayTraditional.traerModa());
+        System.out.println("Mode number is: " + arrayTraditional.traerModa());
 
     }
 }

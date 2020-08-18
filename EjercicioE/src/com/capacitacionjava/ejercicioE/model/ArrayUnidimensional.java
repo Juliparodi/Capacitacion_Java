@@ -1,33 +1,27 @@
 package com.capacitacionjava.ejercicioE.model;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ArrayUnidimensional {
 
-    private static int[] example;
+    private static int[] array;
 
     public ArrayUnidimensional(int size){
-        example = new int[size];
+        array = new int[size];
     }
 
-    public ArrayUnidimensional(){
-        example = new int[]{2,3,2,4,2,3};
-    }
 
-    public static int[] getExample() {
-        return example;
+
+    public static int[] getArray() {
+        return array;
     }
 
 
     public void fillArray(){
-        for (int i = 0; i < example.length; i++) {
-            example[i] = ArrayUnidimensional.randomNumber();
+        for (int i = 0; i < array.length; i++) {
+           array[i] = ThreadLocalRandom.current().nextInt(1,10);
         }
     }
 
-    public static int randomNumber(){
-        Random randomGenerator = new Random();
-        return randomGenerator.nextInt(50) + 1;
-    }
 
 }

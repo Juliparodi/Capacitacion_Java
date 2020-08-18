@@ -4,82 +4,105 @@ import java.util.Arrays;
 
 public class ArrayTraditional extends ArrayUnidimensional {
 
+    public ArrayTraditional(int size) {
+        super(size);
+    }
 
     public int getMin(){
-        int min = ArrayUnidimensional.getExample()[0];
-        for (int i = 0; i < ArrayUnidimensional.getExample().length; i++) {
-            if (ArrayUnidimensional.getExample()[i] < min){
-                min = ArrayUnidimensional.getExample()[i];
+        int min = ArrayUnidimensional.getArray()[0];
+        for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
+            if (ArrayUnidimensional.getArray()[i] < min){
+                min = ArrayUnidimensional.getArray()[i];
             }
         }
         return min;
     }
 
     public int getMax(){
-        int max = ArrayUnidimensional.getExample()[0];
-        for (int i = 0; i < ArrayUnidimensional.getExample().length ; i++) {
-            if (ArrayUnidimensional.getExample()[i] > max){
-                max = ArrayUnidimensional.getExample()[i];
+        int max = ArrayUnidimensional.getArray()[0];
+        for (int i = 0; i < ArrayUnidimensional.getArray().length ; i++) {
+            if (ArrayUnidimensional.getArray()[i] > max){
+                max = ArrayUnidimensional.getArray()[i];
             }
         }
         return max;
     }
 
+    public double avg(){
+        double avg;
+        double sum = 0;
+        for (int i = 0; i < ArrayUnidimensional.getArray().length ; i++){
+            sum = sum + ArrayUnidimensional.getArray()[i];
+        }
+        avg = (sum / ArrayUnidimensional.getArray().length);
+        return avg;
+    }
+
+    //Ordena el array con el metodo .sort y luego imprime resultado.
     public void sortArrayAsc(){
-        int[] arraySorted = ArrayUnidimensional.getExample();
-        Arrays.sort(ArrayUnidimensional.getExample());
-        for (int i = 0; i < ArrayUnidimensional.getExample().length; i++) {
-            System.out.print(" " + ArrayUnidimensional.getExample()[i] + " ");
+        Arrays.sort(ArrayUnidimensional.getArray());
+        for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
+            System.out.print(" " + ArrayUnidimensional.getArray()[i] + " ");
         }
     }
 
+    //uso del algoritmo SWAP para ordenar array de forma DESC
     public void sortArrayDesc() {
         int temp;
-        for (int i = 0; i < ArrayUnidimensional.getExample().length; i++) {
-            for (int j = 1; j < ArrayUnidimensional.getExample().length; j++) {
-                if (ArrayUnidimensional.getExample()[i] < ArrayUnidimensional.getExample()[j]) {
-                    temp = ArrayUnidimensional.getExample()[i];
-                    ArrayUnidimensional.getExample()[i] = ArrayUnidimensional.getExample()[j];
-                    ArrayUnidimensional.getExample()[j] = temp;
+        for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
+            for (int j = i+1; j < ArrayUnidimensional.getArray().length; j++) {
+                if (ArrayUnidimensional.getArray()[i] < ArrayUnidimensional.getArray()[j]) {
+                    temp = ArrayUnidimensional.getArray()[i];
+                    ArrayUnidimensional.getArray()[i] = ArrayUnidimensional.getArray()[j];
+                    ArrayUnidimensional.getArray()[j] = temp;
                 }
             }
         }
 
-        for (int i = 0; i < ArrayUnidimensional.getExample().length; i++) {
-            System.out.print(" " + ArrayUnidimensional.getExample()[i] + " ");
+        for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
+            System.out.print(" " + ArrayUnidimensional.getArray()[i] + " ");
         }
     }
 
-
+    /*
+    Cuenta la cantidad de veces que el param @num se encuentra dentro del array y luego se haya
+    el cociente entre la # de veces que aparece y el length del array
+    */
     public double traerFrecuencia(int num){
         double count = 0;
-        for (int i = 0; i < ArrayUnidimensional.getExample().length; i++) {
-            if (num == ArrayUnidimensional.getExample()[i]){
+        for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
+            if (num == ArrayUnidimensional.getArray()[i]){
                 count++;
             }
         }
         if (count == 0) {return 0;}
         else {
-           return (count / ArrayUnidimensional.getExample().length);
+           return (count / ArrayUnidimensional.getArray().length);
         }
     }
 
+    /*
+    Uso del doble for para comparar cada numero y el que tenga mayores "count" va a ser el
+    numero retornado x la funcion
+     */
     public int traerModa(){
         int count = 0;
         int numModa = 0;
         int maxCounts = 0;
-        for (int i = 0; i < ArrayUnidimensional.getExample().length; i++) {
-            for (int j = 0; j < ArrayUnidimensional.getExample().length; j++) {
-                if (ArrayUnidimensional.getExample()[i] == ArrayUnidimensional.getExample()[j]){
+        for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
+            for (int j = 0; j < ArrayUnidimensional.getArray().length; j++) {
+                if (ArrayUnidimensional.getArray()[i] == ArrayUnidimensional.getArray()[j]){
                     count++;
                 }
             }
             if (count > maxCounts){
                 maxCounts = count;
-                numModa = ArrayUnidimensional.getExample()[i];
+                numModa = ArrayUnidimensional.getArray()[i];
             }
             count = 0;
         }
         return numModa;
+
+
     }
 }
