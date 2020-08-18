@@ -29,13 +29,11 @@ public class ArrayTraditional extends ArrayUnidimensional {
     }
 
     public double avg(){
-        double avg;
         double sum = 0;
         for (int i = 0; i < ArrayUnidimensional.getArray().length ; i++){
             sum = sum + ArrayUnidimensional.getArray()[i];
         }
-        avg = (sum / ArrayUnidimensional.getArray().length);
-        return avg;
+        return (sum / ArrayUnidimensional.getArray().length);
     }
 
     //Ordena el array con el metodo .sort y luego imprime resultado.
@@ -75,10 +73,7 @@ public class ArrayTraditional extends ArrayUnidimensional {
                 count++;
             }
         }
-        if (count == 0) {return 0;}
-        else {
-           return (count / ArrayUnidimensional.getArray().length);
-        }
+        return count / ArrayUnidimensional.getArray().length;
     }
 
     /*
@@ -102,7 +97,5 @@ public class ArrayTraditional extends ArrayUnidimensional {
             count = 0;
         }
         return numModa;
-
-
     }
 }
