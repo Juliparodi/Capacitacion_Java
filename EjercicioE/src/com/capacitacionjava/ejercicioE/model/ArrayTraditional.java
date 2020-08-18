@@ -8,6 +8,8 @@ public class ArrayTraditional extends ArrayUnidimensional {
         super(size);
     }
 
+   // int[] array = ArrayUnidimensional.getArray();
+
     public int getMin(){
         int min = ArrayUnidimensional.getArray()[0];
         for (int i = 0; i < ArrayUnidimensional.getArray().length; i++) {
@@ -98,4 +100,19 @@ public class ArrayTraditional extends ArrayUnidimensional {
         }
         return numModa;
     }
+/*
+    public int traerModa(){
+        int modaMaxima=0;
+        int numero=0;
+        for (int i=0;i<array.length;i++){
+            if (contar(array[i])>modaMaxima){
+                numero=array[i];
+                modaMaxima=contar(array[i]);
+            }
+
+        }
+        return numero;
+    }
+    */
+
 }
