@@ -46,7 +46,6 @@ public class Patient {
     }
 
     public String getCompleteName() {
-        String result = name + " " + surname;
-        return result;
+        return name + " " + surname;
     }
 }
