@@ -58,8 +58,6 @@ public class Pelicula {
         return getPelicula().equals(pelicula);
     }
 
-    public boolean equals(int idPelicula){return getPelicula().equals(idPelicula);}
-
     @Override
     public int hashCode() {
         return Objects.hash(pelicula);

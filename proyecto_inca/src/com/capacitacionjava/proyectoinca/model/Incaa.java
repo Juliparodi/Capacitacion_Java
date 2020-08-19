@@ -45,23 +45,29 @@ public class Incaa {
 
     /*
     Se filtra la lista para saber si contiene parte de la pelicula ingresada como @param
-    Todas las coincidencias, se guardan en una lista y se retorna.
+    Todas las coincidencias, se guardan en una lista, se chequea si la lista esta vacia y sino, se retorna.
      */
-    public List<Pelicula> getPelicula(String partePelicula){
+    public List<Pelicula> getPelicula(String partePelicula) throws Exception{
         List<Pelicula> pelicula = catalogo.stream()
                 .filter(x -> x.getPelicula().contains(partePelicula))
                 .collect(Collectors.toList());
+        if (pelicula.size()==0) {
+            throw new Exception();
+        }
         return pelicula;
     }
 
     /*
     Se filtra la lista para determinar las peliculas que tienen el genero dado como @param
-    Todas las coincidencias, se guardan en una lista y se retorna.
+    Todas las coincidencias, se guardan en una lista, sino esta vacia, se retorna.
      */
-    public List<Pelicula> getPelicula(Genero genero){
+    public List<Pelicula> getPelicula(Genero genero) throws Exception{
         List<Pelicula> pelicula = this.catalogo.stream()
                 .filter(x -> x.getGenero().equals(genero))
                 .collect(Collectors.toList());
+        if (pelicula.size()==0){
+            throw new Exception();
+        }
         return pelicula;
     }
 
@@ -83,7 +89,7 @@ public class Incaa {
      */
     public boolean removePelicula (int idPelicula) throws Exception{
         if (getPelicula(idPelicula).equals(null)){
-            throw new Exception("La pelicula ingresada no existe en nuestro catalogo");
+            throw new NullPointerException("La pelicula ingresada no existe en nuestro catalogo");
         }
         else {
             catalogo.remove(getPelicula(idPelicula));

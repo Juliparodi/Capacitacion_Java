@@ -16,10 +16,6 @@ public class Genero {
         generos.put(idGenero,genero);
     }
 
-    public static Map<Integer, String> getGeneros() {
-        return generos;
-    }
-
     public String getGenero(){
         return genero;
     }

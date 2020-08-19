@@ -41,13 +41,15 @@ public class TestPelicula {
 
         //updatePelicula
         inca.updatePelicula(2, "Harry Potter");
+        //inca.updatePelicula(50, "ET"); (Genera Exception)
 
         //removePelicula
         System.out.println("a continuacion vamos a eliminar la pelicula " + inca.getPelicula(4).getPelicula());
         inca.removePelicula(4);
+        //inca.removePelicula(40); (Genera NullPointerException)
 
         //getPeliculabyGenero
-        System.out.println("La/las peliculas del genero " + genero1.getGenero() + " son: ");
+        System.out.println("La/las peliculas del genero " + genero.getGenero() + " son: ");
         for (Pelicula peliculas : inca.getPelicula(genero1)) {
             System.out.println(peliculas.getPelicula());
         }
