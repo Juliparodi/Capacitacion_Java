@@ -52,7 +52,7 @@ public class Incaa {
                 .filter(x -> x.getPelicula().contains(partePelicula))
                 .collect(Collectors.toList());
         if (pelicula.size()==0) {
-            throw new Exception();
+            throw new Exception("No se encontraron peliculas con esta parte de pelicula: " + partePelicula);
         }
         return pelicula;
     }
@@ -66,7 +66,7 @@ public class Incaa {
                 .filter(x -> x.getGenero().equals(genero))
                 .collect(Collectors.toList());
         if (pelicula.size()==0){
-            throw new Exception();
+            throw new Exception("No se encontrar peliculas de este genero");
         }
         return pelicula;
     }
