@@ -45,7 +45,7 @@ public class Incaa {
 
     /*
     Se filtra la lista para saber si contiene parte de la pelicula ingresada como @param
-    Todas las coincidencias, se guardan en una lista, se chequea si la lista esta vacia y sino, se retorna.
+    Todas las coincidencias se guardan en una lista y se chequea si la lista esta vacia y sino, se retorna.
      */
     public List<Pelicula> getPelicula(String partePelicula) throws Exception{
         List<Pelicula> pelicula = catalogo.stream()
@@ -59,7 +59,7 @@ public class Incaa {
 
     /*
     Se filtra la lista para determinar las peliculas que tienen el genero dado como @param
-    Todas las coincidencias, se guardan en una lista, sino esta vacia, se retorna.
+    Todas las coincidencias se guardan en una lista y sino esta vacia, se retorna.
      */
     public List<Pelicula> getPelicula(Genero genero) throws Exception{
         List<Pelicula> pelicula = this.catalogo.stream()
@@ -85,7 +85,7 @@ public class Incaa {
 
     /*
     Se llama a la funcion getPelicula ya definida, si devuelve null se ejecuta la Exception.
-    Sino, se eliminar la pelicula y se devuelve true.
+    Sino, se elimina la pelicula y se devuelve true.
      */
     public boolean removePelicula (int idPelicula) throws Exception{
         if (getPelicula(idPelicula).equals(null)){
