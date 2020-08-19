@@ -15,7 +15,7 @@ public class Incaa {
     //printAllPeliculas
     public void printCatalogo(){
         for (int i = 0; i < catalogo.size(); i++) {
-            System.out.println(catalogo.get(i).getIdPelicula() + " " + catalogo.get(i).getPelicula());
+            System.out.println(catalogo.get(i).toString());
         }
     }
 
@@ -23,13 +23,13 @@ public class Incaa {
     Se recorre la lista corroborando que la pelicula ingresada no se encuentre en el catalogo,
     sino se encuentra, se agrega al catalogo.
      */
-    public boolean addPelicula(String pelicula) throws Exception{
+    public boolean addPelicula(String pelicula, Genero genero) throws Exception{
         for (int i = 0; i < catalogo.size() ; i++) {
             if (catalogo.get(i).getPelicula().equals(pelicula)){
                 throw new Exception("La pelicula ingresada ya se encuentra en el catalogo");
             }
         }
-       return catalogo.add(new Pelicula(pelicula));
+       return catalogo.add(new Pelicula(pelicula, genero));
     }
 
     /*
@@ -55,18 +55,26 @@ public class Incaa {
     }
 
     /*
-    Se filtra la lista por el idPelicula ingresado, si no se encuentra ninguno se ejecuta la exception.
-    Si se encuentra, se actualiza la lista usando el mismo ID pero diferente nombre
-    Al final, se ordena para que el objeto no se agregue al final de la lista
+    Se filtra la lista para determinar las peliculas que tienen el genero dado como @param
+    Todas las coincidencias, se guardan en una lista y se retorna.
      */
-    public void updatePelicula (int idPelicula, String pelicula) throws Exception{
-        catalogo.stream()
-                .filter(x -> x.getIdPelicula()==idPelicula)
-                .findAny()
-                .orElseThrow(() -> new Exception("La pelicula ingresada no se encuentra en el catalogo"));
-        catalogo.set(idPelicula, new Pelicula(idPelicula, pelicula));
-        catalogo.stream().sorted();
-        System.out.println("la pelicula: " + pelicula + " con id: " + idPelicula + " fue ingresada en el sistema");
+    public List<Pelicula> getPelicula(Genero genero){
+        List<Pelicula> pelicula = this.catalogo.stream()
+                .filter(x -> x.getGenero().equals(genero))
+                .collect(Collectors.toList());
+        return pelicula;
+    }
+
+    /*
+    Busca la pelicula x id y si la encuentra, la actualiza con el nuevo string pelicula
+     */
+    public void updatePelicula(int id,String pelicula) throws Exception {
+        try {
+            getPelicula(id).setPelicula(pelicula);
+            System.out.println("La pelicula " + pelicula + " se agrego exitosamente");
+        } catch (Exception e){
+            throw  new Exception("No se pudo realizar porque no se encontro pelicula");
+        }
     }
 
     /*
@@ -82,4 +90,5 @@ public class Incaa {
             return true;
         }
     }
+
 }
