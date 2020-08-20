@@ -54,8 +54,10 @@ public class Pelicula {
         this.genero = genero;
     }
 
-    public boolean equals(String pelicula) {
-        return getPelicula().equals(pelicula);
+    @Override
+    public boolean equals(Object o) {
+        Pelicula pelicula1 = (Pelicula) o;
+        return Objects.equals(pelicula, pelicula1.pelicula);
     }
 
     @Override

@@ -26,18 +26,16 @@ public class Incaa {
                 .findAny()
                 .ifPresent(x -> {throw new IllegalArgumentException("La pelicula ingresada ya se encuentra en el catalogo");});
         return catalogo.add(new Pelicula(pelicula, genero));
-
     }
 
     /*
     Si se encuentra la pelicula, se devuelve.
      */
      public Pelicula getPelicula(int idPelicula){
-        Pelicula pelicula = catalogo.stream()
+       return catalogo.stream()
                 .filter(x -> x.getIdPelicula()==(idPelicula))
                 .findFirst()
                 .orElse(null);
-        return pelicula;
     }
 
     /*
@@ -45,10 +43,9 @@ public class Incaa {
     Todas las coincidencias se guardan en una lista y se chequea si la lista esta vacia y sino, se retorna.
      */
     public List<Pelicula> getPelicula(String partePelicula) throws Exception{
-        List<Pelicula> pelicula = catalogo.stream()
+        return catalogo.stream()
                 .filter(x -> x.getPelicula().contains(partePelicula))
                 .collect(Collectors.toList());
-        return pelicula;
     }
 
     /*
@@ -56,10 +53,9 @@ public class Incaa {
     Todas las coincidencias se guardan en una lista y sino esta vacia, se retorna.
      */
     public List<Pelicula> getPelicula(Genero genero) throws Exception{
-        List<Pelicula> pelicula = this.catalogo.stream()
+        return this.catalogo.stream()
                 .filter(x -> x.getGenero().equals(genero))
                 .collect(Collectors.toList());
-        return pelicula;
     }
 
     /*
