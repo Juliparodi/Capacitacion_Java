@@ -11,11 +11,18 @@ public class Genero {
     private static Map<Integer,String> generos=new HashMap<>();
 
     public Genero(int idGenero,String genero){
-        this.genero=genero;
+        this.genero=setGenero(genero);
         this.idGenero=idGenero;
         generos.put(idGenero,genero);
     }
 
+    public String setGenero(String genero){
+      boolean validation = generos.values().stream().anyMatch(x -> x.equals(genero));
+      if (validation){
+          throw new IllegalArgumentException("El genero ya se encuentra en el catalogo");
+      }
+        return genero;
+    }
     public String getGenero(){
         return genero;
     }

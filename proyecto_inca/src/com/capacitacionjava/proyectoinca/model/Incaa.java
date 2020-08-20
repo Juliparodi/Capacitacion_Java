@@ -13,23 +13,20 @@ public class Incaa {
     }
 
     //printAllPeliculas
-    public void printCatalogo(){
-        for (int i = 0; i < catalogo.size(); i++) {
-            System.out.println(catalogo.get(i).toString());
-        }
+    public List<Pelicula> getCatalogo(){
+        return catalogo;
     }
 
     /*
-    Se recorre la lista corroborando que la pelicula ingresada no se encuentre en el catalogo,
-    sino se encuentra, se agrega al catalogo.
+    Filtra la lista corroborando que la pelicula ingresada no se encuentre en el catalogo,
+    si se encuentra arroja una exception y sino, se agrega.
      */
     public boolean addPelicula(String pelicula, Genero genero) throws Exception{
-        for (int i = 0; i < catalogo.size() ; i++) {
-            if (catalogo.get(i).getPelicula().equals(pelicula)){
-                throw new Exception("La pelicula ingresada ya se encuentra en el catalogo");
-            }
-        }
-       return catalogo.add(new Pelicula(pelicula, genero));
+        catalogo.stream().filter(x -> x.getPelicula().equals(pelicula))
+                .findAny()
+                .ifPresent(x -> {throw new IllegalArgumentException("La pelicula ingresada ya se encuentra en el catalogo");});
+        return catalogo.add(new Pelicula(pelicula, genero));
+
     }
 
     /*
@@ -51,9 +48,6 @@ public class Incaa {
         List<Pelicula> pelicula = catalogo.stream()
                 .filter(x -> x.getPelicula().contains(partePelicula))
                 .collect(Collectors.toList());
-        if (pelicula.size()==0) {
-            throw new Exception("No se encontraron peliculas con esta parte de pelicula: " + partePelicula);
-        }
         return pelicula;
     }
 
@@ -65,9 +59,6 @@ public class Incaa {
         List<Pelicula> pelicula = this.catalogo.stream()
                 .filter(x -> x.getGenero().equals(genero))
                 .collect(Collectors.toList());
-        if (pelicula.size()==0){
-            throw new Exception("No se encontrar peliculas de este genero");
-        }
         return pelicula;
     }
 
@@ -87,14 +78,12 @@ public class Incaa {
     Se llama a la funcion getPelicula ya definida, si devuelve null se ejecuta la Exception.
     Sino, se elimina la pelicula y se devuelve true.
      */
-    public boolean removePelicula (int idPelicula) throws Exception{
-        if (getPelicula(idPelicula).equals(null)){
+    public boolean removePelicula (int idPelicula) throws Exception {
+        if (getPelicula(idPelicula)==(null)){
             throw new NullPointerException("La pelicula ingresada no existe en nuestro catalogo");
         }
-        else {
             catalogo.remove(getPelicula(idPelicula));
             return true;
         }
-    }
-
 }
+

@@ -65,11 +65,11 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" +
+        return "{" +
                 "idPelicula=" + idPelicula +
                 ", pelicula='" + pelicula + '\'' +
                 ", genero=" + genero.getGenero() +
-                '}';
+                '}' + "\n";
     }
 
 
